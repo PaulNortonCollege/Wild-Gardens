@@ -9,6 +9,8 @@ var fact_one = "???"
 var fact_two = "???"
 var fact_three = "???"
 
+var current_weather ='Sunny'
+var change_time = false
 
 var rose_stage = 1
 

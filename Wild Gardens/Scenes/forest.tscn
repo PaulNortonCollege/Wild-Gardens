@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfesm2ufhq4o"]
+[gd_scene load_steps=8 format=3 uid="uid://bfesm2ufhq4o"]
 
 [ext_resource type="PackedScene" uid="uid://f3a66bsikmbv" path="res://Scenes/tile_map.tscn" id="1_5w3xw"]
 [ext_resource type="Script" path="res://Scripts/forest.gd" id="1_qmdlf"]
 [ext_resource type="PackedScene" uid="uid://bmrnk3ru2plwt" path="res://Scenes/player.tscn" id="2_2gjxt"]
+[ext_resource type="PackedScene" uid="uid://de8172uixl7cs" path="res://Scenes/weather_control.tscn" id="4_saqk6"]
 [ext_resource type="PackedScene" uid="uid://ckcvjprnc1qco" path="res://Scenes/rabbit.tscn" id="4_ylsaw"]
+[ext_resource type="PackedScene" uid="uid://xfjxnhtw5xl2" path="res://Scenes/fact_sheet.tscn" id="5_gyawb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swxgx"]
 size = Vector2(139, 20)
@@ -23,6 +25,9 @@ y_sort_enabled = true
 position = Vector2(262, 321)
 collision_layer = 3
 
+[node name="WeatherControl" parent="Player" instance=ExtResource("4_saqk6")]
+position = Vector2(-262, -321)
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
 limit_left = 120
@@ -31,6 +36,11 @@ limit_right = 600
 limit_bottom = 360
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="FactSheet" parent="Player/Camera2D" instance=ExtResource("5_gyawb")]
+visible = false
+position = Vector2(51, -109)
+scale = Vector2(0.1, 0.1)
 
 [node name="Grassland_Enter" type="Area2D" parent="."]
 position = Vector2(263, 342)

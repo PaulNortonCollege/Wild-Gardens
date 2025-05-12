@@ -16,6 +16,7 @@ func _on_area_2d_area_entered(area):
 	if Global.watercan == true:
 		$GrowTimer.start()
 		$RoseAnimation.play("RoseGrowth")
+		
 
 
 func _on_grow_timer_timeout():
@@ -69,3 +70,4 @@ func give_facts():
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("Player"):
 		Global.fact_view = false
+		

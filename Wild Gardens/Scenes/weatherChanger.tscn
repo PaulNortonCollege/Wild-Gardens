@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://svid725dhw44"]
+
+[ext_resource type="Script" path="res://Scenes/weatherChanger.gd" id="1_70bs3"]
+[ext_resource type="Texture2D" uid="uid://canslmdpl5mbi" path="res://Sprites/objects.png" id="1_sucyj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_28s11"]
+
+[node name="Weather Changer" type="StaticBody2D"]
+script = ExtResource("1_70bs3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sucyj")
+region_enabled = true
+region_rect = Rect2(0.970795, 0.95647, 14.2698, 13.0806)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_28s11")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

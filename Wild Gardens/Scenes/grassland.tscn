@@ -1,13 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://dqdntyvt2fvoe"]
+[gd_scene load_steps=24 format=3 uid="uid://dqdntyvt2fvoe"]
 
 [ext_resource type="Script" path="res://Scripts/grassland.gd" id="1_ain8x"]
 [ext_resource type="PackedScene" uid="uid://f3a66bsikmbv" path="res://Scenes/tile_map.tscn" id="2_e0k1b"]
 [ext_resource type="PackedScene" uid="uid://xfjxnhtw5xl2" path="res://Scenes/fact_sheet.tscn" id="4_5ky70"]
 [ext_resource type="PackedScene" uid="uid://bmrnk3ru2plwt" path="res://Scenes/player.tscn" id="5_b0taj"]
 [ext_resource type="PackedScene" uid="uid://db08w17rnapl8" path="res://Scenes/watercan.tscn" id="5_vtth3"]
+[ext_resource type="PackedScene" uid="uid://c6vupkswnictk" path="res://Scenes/day_night_cycle.tscn" id="5_y4fy5"]
 [ext_resource type="Texture2D" uid="uid://cttdwe27kgmjw" path="res://Sprites/Flower 10 - PURPLE.png" id="6_fsilk"]
 [ext_resource type="Script" path="res://Scenes/Rose.gd" id="6_paa61"]
 [ext_resource type="Texture2D" uid="uid://c6bkgamn7s8i4" path="res://Sprites/flowers edit-Photoroom.png" id="6_uwi86"]
+[ext_resource type="PackedScene" uid="uid://de8172uixl7cs" path="res://Scenes/weather_control.tscn" id="9_oojwh"]
+[ext_resource type="PackedScene" uid="uid://svid725dhw44" path="res://Scenes/weatherChanger.tscn" id="10_0ribe"]
+[ext_resource type="PackedScene" uid="uid://bj15hx7t0fuc3" path="res://Scenes/day_night_changer.tscn" id="12_uj32r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gjc4d"]
 size = Vector2(18, 6)
@@ -99,6 +103,12 @@ visible = false
 position = Vector2(46, -56)
 scale = Vector2(0.1, 0.1)
 
+[node name="Day_Night_Cycle" parent="Player/Camera2D" instance=ExtResource("5_y4fy5")]
+position = Vector2(-61, -11)
+
+[node name="WeatherControl" parent="Player" instance=ExtResource("9_oojwh")]
+position = Vector2(0, -104)
+
 [node name="Flower" type="Area2D" parent="."]
 position = Vector2(63, 61)
 
@@ -144,6 +154,12 @@ shape = SubResource("CircleShape2D_flp42")
 debug_color = Color(0.188235, 0.611765, 0.560784, 0.419608)
 
 [node name="GrowTimer" type="Timer" parent="Rose"]
+
+[node name="Weather Changer" parent="." instance=ExtResource("10_0ribe")]
+position = Vector2(134, 27)
+
+[node name="DayNightChanger" parent="." instance=ExtResource("12_uj32r")]
+position = Vector2(85, 32)
 
 [connection signal="body_entered" from="Forest_Enter" to="." method="_on_forest_enter_body_entered"]
 [connection signal="area_entered" from="Rose/Area2D" to="Rose" method="_on_area_2d_area_entered"]
