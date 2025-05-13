@@ -40,11 +40,11 @@ func _process(delta):
 func change_to_day():
 	print("running day")
 	$AnimationPlayer.play("Night to Day")
-	$Timer.wait_time = 10
-	$Timer.start
+	#$Timer.wait_time = 10
+	#$Timer.start
 
 func change_to_night():
 	print("running night")
 	$AnimationPlayer.play("Day to Night")	
-	$Timer.wait_time = 10
-	$Timer.start
+	#$Timer.wait_time = 10
+	#$Timer.start

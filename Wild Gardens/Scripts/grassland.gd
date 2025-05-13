@@ -13,9 +13,9 @@ func _ready():
 	
 func _physics_process(delta):
 	if Global.fact_view == true:
-		$Player/Camera2D/FactSheet.visible = true
+		$CanvasLayer/FactSheet.visible = true
 	else:
-		$Player/Camera2D/FactSheet.visible = false
+		$CanvasLayer/FactSheet.visible = false
 
 func _on_forest_enter_body_entered(body):
 	if body.is_in_group("Player"):
