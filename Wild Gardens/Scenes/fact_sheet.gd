@@ -12,8 +12,8 @@ func _process(delta):
 	var fact1 = Global.fact_one
 	var fact2 = Global.fact_two
 	var fact3 = Global.fact_three
-	
-	$ColorRect/FlowerName.text = name
-	$ColorRect/FactOne.text = str(fact1)
-	$ColorRect/FactTwo.text = str(fact2)
-	$ColorRect/FactThree.text = str(fact3)
+	$Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/Label.text = name
+	#$ColorRect/FlowerName.text = name
+	$Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/Label2.text = str(fact1)
+	$Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/Label3.text = str(fact2)
+	$Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer/Label4.text = str(fact3)

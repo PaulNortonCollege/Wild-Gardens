@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 var selected = false
+var watercan_collected = false
 
 
 func _ready():
@@ -20,3 +21,10 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			selected = false
 			Global.watercan=false
+
+
+func _on_area_2d_body_entered(body):
+	watercan_collected = true
+	Global.watercan = true
+	visible = false
+	

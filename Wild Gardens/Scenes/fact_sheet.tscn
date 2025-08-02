@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://xfjxnhtw5xl2"]
+[gd_scene load_steps=4 format=3 uid="uid://xfjxnhtw5xl2"]
 
 [ext_resource type="Script" path="res://Scenes/fact_sheet.gd" id="1_atmk5"]
+[ext_resource type="FontFile" uid="uid://m624rb6m0xb7" path="res://Sprites/ToyBox.ttf" id="2_d1tbv"]
+[ext_resource type="Texture2D" uid="uid://boqs1shhg6fs4" path="res://Sprites/Sprite sheet for Basic Pack.png" id="3_io234"]
 
 [node name="FactSheet" type="StaticBody2D"]
 script = ExtResource("1_atmk5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 239.0
 offset_bottom = 226.0
 scale = Vector2(3.87238, 5.30034)
@@ -13,40 +16,130 @@ color = Color(0.803922, 0.588235, 0.333333, 1)
 
 [node name="FlowerName" type="RichTextLabel" parent="ColorRect"]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 16.0
-offset_right = 201.0
-offset_bottom = 41.0
+offset_left = 12.912
+offset_top = 8.67869
+offset_right = 187.912
+offset_bottom = 33.6787
+theme_override_fonts/normal_font = ExtResource("2_d1tbv")
 theme_override_font_sizes/normal_font_size = 10
 text = "Flower_Name
 "
 
 [node name="FactOne" type="RichTextLabel" parent="ColorRect"]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 57.0
-offset_right = 203.0
-offset_bottom = 105.0
+offset_left = 15.2361
+offset_top = 18.678
+offset_right = 190.236
+offset_bottom = 66.678
 theme_override_font_sizes/normal_font_size = 10
 text = "???
 "
 
 [node name="FactTwo" type="RichTextLabel" parent="ColorRect"]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 109.0
-offset_right = 203.0
-offset_bottom = 153.0
+offset_left = 13.9449
+offset_top = 30.5641
+offset_right = 188.945
+offset_bottom = 74.5641
 theme_override_font_sizes/normal_font_size = 10
 text = "???
 "
 
 [node name="FactThree" type="RichTextLabel" parent="ColorRect"]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 153.198
-offset_right = 203.0
-offset_bottom = 207.198
+offset_left = 13.6867
+offset_top = 53.0155
+offset_right = 188.687
+offset_bottom = 107.015
 theme_override_font_sizes/normal_font_size = 10
 text = "???
 "
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 4.0
+offset_top = 2.0
+offset_right = 504.0
+offset_bottom = 502.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(500, 800)
+layout_mode = 2
+texture = ExtResource("3_io234")
+region_rect = Rect2(869, 6, 22, 22)
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/NinePatchRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.580392, 0.466667, 0.270588, 1)
+theme_override_colors/font_shadow_color = Color(0.545098, 0.376471, 0.266667, 1)
+theme_override_colors/font_outline_color = Color(0.937255, 0.866667, 0.752941, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_d1tbv")
+theme_override_font_sizes/font_size = 50
+text = "Test"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label2" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.580392, 0.466667, 0.270588, 1)
+theme_override_colors/font_shadow_color = Color(0.545098, 0.376471, 0.266667, 1)
+theme_override_colors/font_outline_color = Color(0.937255, 0.866667, 0.752941, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_d1tbv")
+theme_override_font_sizes/font_size = 20
+text = "Test"
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.580392, 0.466667, 0.270588, 1)
+theme_override_colors/font_shadow_color = Color(0.545098, 0.376471, 0.266667, 1)
+theme_override_colors/font_outline_color = Color(0.937255, 0.866667, 0.752941, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_d1tbv")
+theme_override_font_sizes/font_size = 20
+text = "Test"
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="Control/MarginContainer/NinePatchRect/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.580392, 0.466667, 0.270588, 1)
+theme_override_colors/font_shadow_color = Color(0.545098, 0.376471, 0.266667, 1)
+theme_override_colors/font_outline_color = Color(0.937255, 0.866667, 0.752941, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_d1tbv")
+theme_override_font_sizes/font_size = 20
+text = "Test"
+autowrap_mode = 3

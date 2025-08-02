@@ -1,0 +1,637 @@
+[gd_scene load_steps=19 format=3 uid="uid://6p7l0b5ksot1"]
+
+[ext_resource type="Texture2D" uid="uid://boqs1shhg6fs4" path="res://Sprites/Sprite sheet for Basic Pack.png" id="1_4vp4u"]
+[ext_resource type="Script" path="res://Scripts/popupMenuManager.gd" id="1_43agc"]
+[ext_resource type="Script" path="res://Scripts/FactSheet.gd" id="2_d2uec"]
+[ext_resource type="FontFile" uid="uid://m624rb6m0xb7" path="res://Sprites/ToyBox.ttf" id="2_vqjvs"]
+[ext_resource type="Script" path="res://Scripts/StatDisplayManager.gd" id="3_hesxf"]
+[ext_resource type="PackedScene" uid="uid://xfjxnhtw5xl2" path="res://Scenes/fact_sheet.tscn" id="3_niwk8"]
+[ext_resource type="Texture2D" uid="uid://b5ni4btloag3c" path="res://Sprites/farmingTilesheetComplete.png" id="7_bjkll"]
+[ext_resource type="Script" path="res://Scenes/WatercanContainer.gd" id="7_ssict"]
+[ext_resource type="Script" path="res://Scenes/NotificationsManager.gd" id="9_y1m6d"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qsy1n"]
+texture = ExtResource("7_bjkll")
+region_rect = Rect2(113, 83, 14, 11)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_idw4j"]
+texture = ExtResource("1_4vp4u")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(276, 178, 89, 27)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yev3q"]
+texture = ExtResource("1_4vp4u")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(275, 212, 90, 25)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s1upj"]
+texture = ExtResource("1_4vp4u")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(837, 228, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oi2js"]
+texture = ExtResource("1_4vp4u")
+region_rect = Rect2(869, 230, 22, 22)
+
+[sub_resource type="Animation" id="Animation_7jtu2"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_jsb1v"]
+resource_name = "close_Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/BaseMenuScreen/NinePatchRect:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(800, 560), Vector2(800, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/BaseMenuScreen/NinePatchRect/MarginContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menu/BaseMenuScreen/NinePatchRect/MarginContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuButtonContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MenuButtonContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sp2um"]
+resource_name = "open_Menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/BaseMenuScreen/NinePatchRect:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(800, 0), Vector2(800, 560)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/BaseMenuScreen/NinePatchRect/MarginContainer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Menu/BaseMenuScreen/NinePatchRect/MarginContainer:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuButtonContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MenuButtonContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0l01i"]
+_data = {
+"RESET": SubResource("Animation_7jtu2"),
+"close_Menu": SubResource("Animation_jsb1v"),
+"open_Menu": SubResource("Animation_sp2um")
+}
+
+[node name="InGameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UiBorder" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top" type="HBoxContainer" parent="UiBorder"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UiBorder/Top"]
+custom_minimum_size = Vector2(1151, 10)
+layout_mode = 2
+texture = ExtResource("1_4vp4u")
+region_rect = Rect2(200, 57, 31, 7)
+patch_margin_left = 10
+patch_margin_right = 10
+
+[node name="Bottom" type="HBoxContainer" parent="UiBorder"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UiBorder/Bottom"]
+custom_minimum_size = Vector2(1151, 10)
+layout_mode = 2
+texture = ExtResource("1_4vp4u")
+region_rect = Rect2(201, 80, 30, 7)
+patch_margin_left = 10
+patch_margin_right = 10
+
+[node name="left" type="VBoxContainer" parent="UiBorder"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UiBorder/left"]
+custom_minimum_size = Vector2(10, 648)
+layout_mode = 2
+texture = ExtResource("1_4vp4u")
+region_rect = Rect2(203, 57, 5, 30)
+patch_margin_top = 10
+patch_margin_bottom = 10
+
+[node name="right" type="VBoxContainer" parent="UiBorder"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UiBorder/right"]
+custom_minimum_size = Vector2(10, 654)
+layout_mode = 2
+texture = ExtResource("1_4vp4u")
+region_rect = Rect2(224, 57, 5, 30)
+patch_margin_top = 10
+patch_margin_bottom = 10
+
+[node name="FactContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_d2uec")
+
+[node name="FactSheet" parent="FactContainer" instance=ExtResource("3_niwk8")]
+visible = false
+position = Vector2(728, 37)
+scale = Vector2(0.76042, 0.630563)
+
+[node name="WatercanContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+script = ExtResource("7_ssict")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="WatercanContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_4vp4u")
+region_rect = Rect2(59, 107, 26, 26)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="WatercanContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="WatercanImage" type="Panel" parent="WatercanContainer/NinePatchRect/MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qsy1n")
+
+[node name="Notifications" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 130
+script = ExtResource("9_y1m6d")
+
+[node name="AreaLabel" type="Label" parent="Notifications"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.909804, 0.811765, 0.65098, 1)
+theme_override_colors/font_outline_color = Color(0.666667, 0.47451, 0.34902, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_vqjvs")
+theme_override_font_sizes/font_size = 40
+text = "Test Area"
+
+[node name="DayCount" type="Label" parent="Notifications"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.768627, 0.603922, 0.423529, 1)
+theme_override_colors/font_outline_color = Color(0.666667, 0.47451, 0.34902, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_vqjvs")
+theme_override_font_sizes/font_size = 30
+text = "Day Count"
+
+[node name="Timer" type="Timer" parent="Notifications"]
+wait_time = 5.0
+
+[node name="notifyPlayer" type="Label" parent="Notifications"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_shadow_color = Color(0.666667, 0.47451, 0.34902, 1)
+theme_override_colors/font_outline_color = Color(0.666667, 0.47451, 0.34902, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_vqjvs")
+theme_override_font_sizes/font_size = 20
+
+[node name="Note_timer" type="Timer" parent="Notifications"]
+wait_time = 5.0
+
+[node name="popupMenu" type="MarginContainer" parent="." node_paths=PackedStringArray("menu_screen", "open_menu_screen")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_43agc")
+menu_screen = NodePath("Menu")
+open_menu_screen = NodePath("MenuButtonContainer")
+
+[node name="Menu" type="VBoxContainer" parent="popupMenu"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="BaseMenuScreen" type="MarginContainer" parent="popupMenu/Menu"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="popupMenu/Menu/BaseMenuScreen"]
+layout_mode = 2
+texture = ExtResource("1_4vp4u")
+region_rect = Rect2(293, 5, 38, 38)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 15
+
+[node name="MenuButtons" type="VBoxContainer" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="ToggleMenuButton" type="Button" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_idw4j")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yev3q")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yev3q")
+
+[node name="PlayLabel" type="Label" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons/ToggleMenuButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -17.5
+offset_right = 32.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.952941, 0.898039, 0.760784, 1)
+theme_override_colors/font_outline_color = Color(0.564706, 0.384314, 0.364706, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_vqjvs")
+theme_override_font_sizes/font_size = 25
+text = "Resume Game"
+
+[node name="Save" type="Button" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_idw4j")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yev3q")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yev3q")
+
+[node name="PlayLabel" type="Label" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons/Save"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -17.5
+offset_right = 32.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.952941, 0.898039, 0.760784, 1)
+theme_override_colors/font_outline_color = Color(0.564706, 0.384314, 0.364706, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_vqjvs")
+theme_override_font_sizes/font_size = 25
+text = "Save Game"
+
+[node name="Rules" type="Button" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_idw4j")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yev3q")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yev3q")
+
+[node name="PlayLabel" type="Label" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons/Rules"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -17.5
+offset_right = 32.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.952941, 0.898039, 0.760784, 1)
+theme_override_colors/font_outline_color = Color(0.564706, 0.384314, 0.364706, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_vqjvs")
+theme_override_font_sizes/font_size = 25
+text = "How to Play"
+
+[node name="Collects" type="Button" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_idw4j")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yev3q")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yev3q")
+
+[node name="PlayLabel" type="Label" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons/Collects"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -17.5
+offset_right = 32.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.952941, 0.898039, 0.760784, 1)
+theme_override_colors/font_outline_color = Color(0.564706, 0.384314, 0.364706, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_vqjvs")
+theme_override_font_sizes/font_size = 25
+text = "Collectables"
+
+[node name="QuitGame" type="Button" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_idw4j")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yev3q")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_yev3q")
+
+[node name="PlayLabel" type="Label" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons/QuitGame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -17.5
+offset_right = 32.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.952941, 0.898039, 0.760784, 1)
+theme_override_colors/font_outline_color = Color(0.564706, 0.384314, 0.364706, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_vqjvs")
+theme_override_font_sizes/font_size = 25
+text = "Return to Main Menu"
+
+[node name="StatDisplay" type="HBoxContainer" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 150
+script = ExtResource("3_hesxf")
+
+[node name="DayLabel" type="Label" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/StatDisplay"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0.909804, 0.811765, 0.65098, 1)
+theme_override_colors/font_outline_color = Color(0.564706, 0.384314, 0.364706, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_vqjvs")
+theme_override_font_sizes/font_size = 30
+text = "Day "
+
+[node name="StarsLabel" type="Label" parent="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/StatDisplay"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.909804, 0.811765, 0.65098, 1)
+theme_override_colors/font_outline_color = Color(0.564706, 0.384314, 0.364706, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_vqjvs")
+theme_override_font_sizes/font_size = 30
+text = "Stars Found: "
+
+[node name="Sep" type="Control" parent="popupMenu/Menu"]
+layout_mode = 2
+
+[node name="MenuButtonContainer" type="HBoxContainer" parent="popupMenu"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Sep" type="Control" parent="popupMenu/MenuButtonContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="popupMenu/MenuButtonContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Sep" type="Control" parent="popupMenu/MenuButtonContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ToggleMenuButton" type="Button" parent="popupMenu/MenuButtonContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_s1upj")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oi2js")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_oi2js")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="popupMenu"]
+libraries = {
+"": SubResource("AnimationLibrary_0l01i")
+}
+
+[connection signal="timeout" from="Notifications/Timer" to="Notifications" method="_on_timer_timeout"]
+[connection signal="timeout" from="Notifications/Note_timer" to="Notifications" method="_on_note_timer_timeout"]
+[connection signal="pressed" from="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons/ToggleMenuButton" to="popupMenu" method="_on_toggle_menu_button_pressed"]
+[connection signal="pressed" from="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons/Save" to="popupMenu" method="_on_save_pressed"]
+[connection signal="pressed" from="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons/Rules" to="popupMenu" method="_on_rules_pressed"]
+[connection signal="pressed" from="popupMenu/Menu/BaseMenuScreen/NinePatchRect/MarginContainer/MenuButtons/QuitGame" to="popupMenu" method="_on_quit_game_pressed"]
+[connection signal="pressed" from="popupMenu/MenuButtonContainer/VBoxContainer/ToggleMenuButton" to="popupMenu" method="_on_toggle_menu_button_pressed"]

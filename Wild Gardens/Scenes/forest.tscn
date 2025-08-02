@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bfesm2ufhq4o"]
+[gd_scene load_steps=9 format=3 uid="uid://bfesm2ufhq4o"]
 
 [ext_resource type="PackedScene" uid="uid://f3a66bsikmbv" path="res://Scenes/tile_map.tscn" id="1_5w3xw"]
 [ext_resource type="Script" path="res://Scripts/forest.gd" id="1_qmdlf"]
 [ext_resource type="PackedScene" uid="uid://bmrnk3ru2plwt" path="res://Scenes/player.tscn" id="2_2gjxt"]
+[ext_resource type="PackedScene" uid="uid://6p7l0b5ksot1" path="res://Scenes/in_game_ui.tscn" id="2_3rnci"]
 [ext_resource type="PackedScene" uid="uid://de8172uixl7cs" path="res://Scenes/weather_control.tscn" id="4_saqk6"]
 [ext_resource type="PackedScene" uid="uid://ckcvjprnc1qco" path="res://Scenes/rabbit.tscn" id="4_ylsaw"]
 [ext_resource type="PackedScene" uid="uid://xfjxnhtw5xl2" path="res://Scenes/fact_sheet.tscn" id="5_gyawb"]
@@ -13,6 +14,12 @@ size = Vector2(139, 20)
 [node name="Forest" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_qmdlf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InGameUI" parent="CanvasLayer" instance=ExtResource("2_3rnci")]
+process_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" parent="." instance=ExtResource("1_5w3xw")]
 position = Vector2(63, 86)

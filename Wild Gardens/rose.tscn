@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdg7je7u1v025"]
+
+[ext_resource type="Script" path="res://Scenes/Rose.gd" id="1_yiyql"]
+[ext_resource type="Texture2D" uid="uid://c6bkgamn7s8i4" path="res://Sprites/flowers edit-Photoroom.png" id="2_mhd7e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd1sl"]
+atlas = ExtResource("2_mhd7e")
+region = Rect2(8, 8, 208, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwg2c"]
+atlas = ExtResource("2_mhd7e")
+region = Rect2(219, 8, 208, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1j73"]
+atlas = ExtResource("2_mhd7e")
+region = Rect2(430, 8, 208, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a60wm"]
+atlas = ExtResource("2_mhd7e")
+region = Rect2(641, 8, 208, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pwlk"]
+atlas = ExtResource("2_mhd7e")
+region = Rect2(852, 8, 208, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6801v"]
+atlas = ExtResource("2_mhd7e")
+region = Rect2(1063, 8, 208, 208)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ikf3r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd1sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwg2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1j73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a60wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pwlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6801v")
+}],
+"loop": true,
+"name": &"RoseGrowth",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_flp42"]
+radius = 9.21954
+
+[node name="Rose" type="StaticBody2D"]
+z_index = 1
+position = Vector2(168, -45)
+script = ExtResource("1_yiyql")
+
+[node name="RoseAnimation" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_ikf3r")
+animation = &"RoseGrowth"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_flp42")
+debug_color = Color(0.188235, 0.611765, 0.560784, 0.419608)
+
+[node name="GrowTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="GrowTimer" to="." method="_on_grow_timer_timeout"]
