@@ -15,20 +15,45 @@ func _process(delta):
 
 	note_watercan()
 	note_rose()
+	note_bluebell()
+	note_tulip()
 
 func note_rose():
 	var rose_interaction  = Global.rose_interaction
-	if rose_interaction == true and Global.rose_stage > 4:
-
-		$notifyPlayer.text = "This rose is perfect!"
-	elif Global.watercan == false and rose_interaction == true:
-
-		$notifyPlayer.text = "To water this plant you will need to find a watering can!"	
-	elif Global.watercan == true and rose_interaction == true:
-
-		$notifyPlayer.text = "You have watered this rose!"
+	if rose_interaction == true and  Global.rose_daily_water == false:
+		if rose_interaction == true and Global.rose_stage > 4:
+			$notifyPlayer.text = "This rose is perfect!"
+		elif Global.watercan == false and rose_interaction == true:
+			$notifyPlayer.text = "To water this plant you will need to find a watering can!"	
+		elif Global.watercan == true and rose_interaction == true:
+			$notifyPlayer.text = "You have watered this rose!"
+	elif rose_interaction == true and Global.rose_daily_water == true:
+		$notifyPlayer.text = "You have watered this rose already"
 	
-
+func note_bluebell():
+	var bluebell_interaction  = Global.bluebell_interaction
+	if bluebell_interaction == true and  Global.bluebell_daily_water == false:
+		if bluebell_interaction == true and Global.bluebell_stage > 4:
+			$notifyPlayer.text = "This bluebell is perfect!"
+		elif Global.watercan == false and bluebell_interaction == true:
+			$notifyPlayer.text = "To water this plant you will need to find a watering can!"	
+		elif Global.watercan == true and bluebell_interaction == true:
+			$notifyPlayer.text = "You have watered this bluebell!"
+	elif bluebell_interaction == true and Global.bluebell_daily_water == true:
+		$notifyPlayer.text = "You have watered this bluebell already"
+		
+func note_tulip():
+	var tulip_interaction  = Global.tulip_interaction
+	if tulip_interaction == true and  Global.tulip_daily_water == false:
+		if tulip_interaction == true and Global.tulip_stage > 4:
+			$notifyPlayer.text = "This tulip is perfect!"
+		elif Global.watercan == false and tulip_interaction == true:
+			$notifyPlayer.text = "To water this plant you will need to find a watering can!"	
+		elif Global.watercan == true and tulip_interaction == true:
+			$notifyPlayer.text = "You have watered this tulip!"
+	elif tulip_interaction == true and Global.tulip_daily_water == true:
+		$notifyPlayer.text = "You have watered this tulip already"
+	
 
 func note_watercan():	
 	if Global.watercan == true and watercan_notified == false:

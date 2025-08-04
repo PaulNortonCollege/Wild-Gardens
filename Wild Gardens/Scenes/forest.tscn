@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfesm2ufhq4o"]
+[gd_scene load_steps=10 format=3 uid="uid://bfesm2ufhq4o"]
 
 [ext_resource type="PackedScene" uid="uid://f3a66bsikmbv" path="res://Scenes/tile_map.tscn" id="1_5w3xw"]
 [ext_resource type="Script" path="res://Scripts/forest.gd" id="1_qmdlf"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://6p7l0b5ksot1" path="res://Scenes/in_game_ui.tscn" id="2_3rnci"]
 [ext_resource type="PackedScene" uid="uid://de8172uixl7cs" path="res://Scenes/weather_control.tscn" id="4_saqk6"]
 [ext_resource type="PackedScene" uid="uid://ckcvjprnc1qco" path="res://Scenes/rabbit.tscn" id="4_ylsaw"]
-[ext_resource type="PackedScene" uid="uid://xfjxnhtw5xl2" path="res://Scenes/fact_sheet.tscn" id="5_gyawb"]
+[ext_resource type="PackedScene" uid="uid://40pbxsp5p6x3" path="res://Scenes/tulip.tscn" id="7_hwtrc"]
+[ext_resource type="PackedScene" uid="uid://du22be54do1vn" path="res://Scenes/Star.tscn" id="8_wq7qr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_swxgx"]
 size = Vector2(139, 20)
@@ -44,11 +45,6 @@ limit_bottom = 360
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
-[node name="FactSheet" parent="Player/Camera2D" instance=ExtResource("5_gyawb")]
-visible = false
-position = Vector2(51, -109)
-scale = Vector2(0.1, 0.1)
-
 [node name="Grassland_Enter" type="Area2D" parent="."]
 position = Vector2(263, 342)
 
@@ -64,5 +60,17 @@ position = Vector2(213, 222)
 
 [node name="Rabbit2" parent="." instance=ExtResource("4_ylsaw")]
 position = Vector2(301, 189)
+
+[node name="Tulip" parent="." instance=ExtResource("7_hwtrc")]
+position = Vector2(264, 164)
+scale = Vector2(0.05, 0.05)
+
+[node name="Star4" parent="." instance=ExtResource("8_wq7qr")]
+position = Vector2(345, 253)
+id = "4"
+
+[node name="Star5" parent="." instance=ExtResource("8_wq7qr")]
+position = Vector2(205, 143)
+id = "5"
 
 [connection signal="body_entered" from="Grassland_Enter" to="." method="_on_grassland_enter_body_entered"]

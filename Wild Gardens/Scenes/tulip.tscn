@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://40pbxsp5p6x3"]
+
+[ext_resource type="Texture2D" uid="uid://crqd8aaygth16" path="res://Sprites/flowers edited cleaned up.png" id="1_rt6w0"]
+[ext_resource type="Script" path="res://Scripts/tulip.gd" id="1_vps0u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnusf"]
+atlas = ExtResource("1_rt6w0")
+region = Rect2(0, 428, 213, 213)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_piquq"]
+atlas = ExtResource("1_rt6w0")
+region = Rect2(213, 428, 213, 213)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6rjc"]
+atlas = ExtResource("1_rt6w0")
+region = Rect2(426, 428, 213, 213)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7nse"]
+atlas = ExtResource("1_rt6w0")
+region = Rect2(639, 428, 213, 213)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fod31"]
+atlas = ExtResource("1_rt6w0")
+region = Rect2(852, 428, 213, 213)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g065k"]
+atlas = ExtResource("1_rt6w0")
+region = Rect2(1065, 428, 213, 213)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_koqtd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnusf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_piquq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6rjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7nse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fod31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g065k")
+}],
+"loop": true,
+"name": &"TulipGrowth",
+"speed": 0.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rn6is"]
+radius = 78.0064
+
+[node name="Tulip" type="StaticBody2D"]
+script = ExtResource("1_vps0u")
+
+[node name="TulipAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_koqtd")
+animation = &"TulipGrowth"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5, 85)
+shape = SubResource("CircleShape2D_rn6is")
+
+[node name="GrowTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="GrowTimer" to="." method="_on_grow_timer_timeout"]

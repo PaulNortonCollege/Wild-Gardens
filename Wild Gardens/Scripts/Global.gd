@@ -12,6 +12,7 @@ var player_load_posy = 0
 var current_scene = 1
 
 var day = 1
+
 var stars_found = 0
 var star1 = false
 var star2 = false
@@ -21,6 +22,16 @@ var change_time = false
 
 var rose_stage = 1
 var rose_interaction = false
+var rose_daily_water = false
+
+var bluebell_stage = 1
+var bluebell_interaction = false
+var bluebell_daily_water = false
+
+var tulip_stage = 1
+var tulip_interaction = false
+var tulip_daily_water = false
+
 
 var watercan = false
 var watercan_notified = false
@@ -35,8 +46,8 @@ var fact_three = "???"
 var star_state = {}
 
 func _reset_global_variables():
-	player_load_posx = 0
-	player_load_posy = 0
+	player_load_posx = -10
+	player_load_posy = 200
 	current_scene = 1
 
 	day = 1
@@ -52,6 +63,13 @@ func _reset_global_variables():
 	fact_two = "???"
 	var fact_three = "???"
 	
+	bluebell_stage = 1
+	bluebell_interaction = false
+	bluebell_daily_water = false
+	tulip_stage = 1
+	tulip_interaction = false
+	tulip_daily_water = false
+	
 #This function is ran when the save game button is pressed
 func save_game() -> void:
 	#This is the data that is saved inside the directory
@@ -59,12 +77,21 @@ func save_game() -> void:
 		day = day,
 		stars_found = stars_found,
 		rose_stage = rose_stage,
+		rose_daily_water = rose_daily_water,
 		playerx = player_load_posx,
 		playery = player_load_posy,
 		current_scene = current_scene,
 		watercan = watercan,
 		watercan_notified = watercan_notified,
-		star_state_saved = star_state
+		star_state_saved = star_state,		
+		bluebell_stage = bluebell_stage,
+		bluebell_daily_water = bluebell_daily_water,
+		tulip_stage = tulip_stage,
+		tulip_daily_water = tulip_daily_water
+		
+		
+		
+		
 	}
 	#This code allows us to save the data to a .Json file while also using encryption to
 	#prevent manipulation of the save file outside of the game
@@ -85,11 +112,16 @@ func load_game() -> void:
 		day = data.day
 		stars_found = data.stars_found
 		rose_stage = data.rose_stage
+		rose_daily_water = data.rose_daily_water
 		player_load_posx = data.playerx
 		player_load_posy = data.playery
 		current_scene = data.current_scene
 		watercan = data.watercan
 		watercan_notified = data.watercan_notified
+		bluebell_stage = data.bluebell_stage
+		bluebell_daily_water = data.bluebell_daily_water
+		tulip_stage = data.tulip_stage
+		tulip_daily_water = data.tulip_daily_water
 		star_state.merge(data.star_state_saved,true) 
 		#this checks the current scene in the save file and makes sure that that
 		#scene is activated
