@@ -222,7 +222,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"back_walk",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -265,7 +265,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"front_walk",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -308,7 +308,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"left_walk",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -351,7 +351,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"right_walk",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgqjr"]
@@ -365,8 +365,9 @@ script = ExtResource("1_fa8vg")
 position = Vector2(0, -9)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ny8i6")
-animation = &"front_idle"
-frame_progress = 0.739892
+animation = &"right_walk"
+frame = 2
+frame_progress = 0.738632
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true

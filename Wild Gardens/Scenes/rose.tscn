@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bdg7je7u1v025"]
 
-[ext_resource type="Script" path="res://Scenes/Rose.gd" id="1_yiyql"]
+[ext_resource type="Script" path="res://Scripts/Rose.gd" id="1_yiyql"]
 [ext_resource type="Texture2D" uid="uid://c6bkgamn7s8i4" path="res://Sprites/flowers edit-Photoroom.png" id="2_mhd7e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yd1sl"]

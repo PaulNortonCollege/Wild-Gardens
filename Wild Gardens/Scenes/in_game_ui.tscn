@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://Scripts/StatDisplayManager.gd" id="3_hesxf"]
 [ext_resource type="PackedScene" uid="uid://xfjxnhtw5xl2" path="res://Scenes/fact_sheet.tscn" id="3_niwk8"]
 [ext_resource type="Texture2D" uid="uid://b5ni4btloag3c" path="res://Sprites/farmingTilesheetComplete.png" id="7_bjkll"]
-[ext_resource type="Script" path="res://Scenes/WatercanContainer.gd" id="7_ssict"]
-[ext_resource type="Script" path="res://Scenes/NotificationsManager.gd" id="9_y1m6d"]
+[ext_resource type="Script" path="res://Scripts/WatercanContainer.gd" id="7_ssict"]
+[ext_resource type="Script" path="res://Scripts/NotificationsManager.gd" id="9_y1m6d"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qsy1n"]
 texture = ExtResource("7_bjkll")

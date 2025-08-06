@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://de8172uixl7cs"]
 
-[ext_resource type="Script" path="res://Scenes/weather_control.gd" id="1_p0my4"]
+[ext_resource type="Script" path="res://Scripts/weather_control.gd" id="1_p0my4"]
 [ext_resource type="Texture2D" uid="uid://te8dovx70lw7" path="res://Sprites/rain.png" id="2_0fbkc"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_663i4"]
